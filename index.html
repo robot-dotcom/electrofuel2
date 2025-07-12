@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Food Ordering System</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+        }
+
+        header {
+            background-color: #ff6b6b;
+            color: white;
+            padding: 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .menu-container {
+            padding: 1rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .menu-category {
+            margin-bottom: 2rem;
+        }
+
+        .menu-items {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .menu-item {
+            background: white;
+            border-radius: 8px;
+            padding: 1rem;
+            width: 150px;
+            text-align: center;
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+
+        .menu-item:hover {
+            transform: scale(1.05);
+        }
+
+        .menu-item img {
+            width: 100px;
+            height: 100px;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+
+        .cart-icon {
+            cursor: pointer;
+            font-size: 1.5rem;
+        }
+
+        .cart-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            justify-content: center;
+            align-items: center;
+        }
+
+        .cart-content {
+            background: white;
+            padding: 2rem;
+            border-radius: 8px;
+            width: 80%;
+            max-width: 500px;
+        }
+
+        button {
+            background: #ff6b6b;
+            color: white;
+            border: none;
+            padding: 0.5rem 1rem;
+            margin: 0.5rem;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>🍕 FoodExpress</h1>
+        <div class="cart-icon">🛒 <span id="cart-count">0</span></div>
+    </header>
+
+    <div class="menu-container">
+        <h2>Our Menu</h2>
+        <div class="menu-category">
+            <h3>🍔 Main Courses</h3>
+            <div class="menu-items">
+                <div class="menu-item" onclick="addToCart('Burger', 12.99)">
+                    <img src="https://via.placeholder.com/100" alt="Burger">
+                    <h4>Burger</h4>
+                    <p>RM 12.99</p>
+                </div>
+                <div class="menu-item" onclick="addToCart('Pizza', 18.99)">
+                    <img src="https://via.placeholder.com/100" alt="Pizza">
+                    <h4>Pizza</h4>
+                    <p>RM 18.99</p>
+                </div>
+                <div class="menu-item" onclick="addToCart('Pasta', 14.99)">
+                    <img src="https://via.placeholder.com/100" alt="Pasta">
+                    <h4>Pasta</h4>
+                    <p>RM 14.99</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="menu-category">
+            <h3>🥤 Drinks</h3>
+            <div class="menu-items">
+                <div class="menu-item" onclick="addToCart('Cola', 4.99)">
+                    <img src="https://via.placeholder.com/100" alt="Cola">
+                    <h4>Cola</h4>
+                    <p>RM 4.99</p>
+                </div>
+                <div class="menu-item" onclick="addToCart('Iced Tea', 3.99)">
+                    <img src="https://via.placeholder.com/100" alt="Iced Tea">
+                    <h4>Iced Tea</h4>
+                    <p>RM 3.99</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="cart-modal" id="cart-modal">
+        <div class="cart-content">
+            <h2>Your Order 🛒</h2>
+            <div id="cart-items"></div>
+            <p id="cart-total">Total: RM 0.00</p>
+            <button onclick="checkout()">Checkout</button>
+            <button onclick="closeCart()">Close</button>
+        </div>
+    </div>
+
+    <script>
+        let cart = [];
+
+        function addToCart(name, price) {
+            cart.push({ name, price });
+            updateCart();
+        }
+
+        function updateCart() {
+            document.getElementById("cart-count").textContent = cart.length;
+            
+            let cartItemsHTML = "";
+            let total = 0;
+            
+            cart.forEach(item => {
+                cartItemsHTML += `<p>${item.name} - RM ${item.price.toFixed(2)}</p>`;
+                total += item.price;
+            });
+            
+            document.getElementById("cart-items").innerHTML = cartItemsHTML;
+            document.getElementById("cart-total").textContent = `Total: RM ${total.toFixed(2)}`;
+        }
+
+        function checkout() {
+            if (cart.length === 0) {
+                alert("Your cart is empty!");
+                return;
+            }
+            alert(`Order placed! Total: RM ${cart.reduce((sum, item) => sum + item.price, 0).toFixed(2)}`);
+            cart = [];
+            updateCart();
+            closeCart();
+        }
+
+        function closeCart() {
+            document.getElementById("cart-modal").style.display = "none";
+        }
+
+        // Open cart when clicking the cart icon
+        document.querySelector(".cart-icon").addEventListener("click", () => {
+            document.getElementById("cart-modal").style.display = "flex";
+        });
+    </script>
+</body>
+</html>
