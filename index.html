@@ -3,19 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Delicious Bites - Order Food Online</title>
+    <title>ElectroFuel 2 - Innovative Campus Eats</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
-        body { 
+        body {
             font-family: 'Inter', sans-serif;
             scroll-behavior: smooth;
-        }
-        .cart-bounce { animation: bounce 0.3s ease-in-out; }
-        @keyframes bounce {
-            0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.1); }
         }
         .menu-item {
             transition: all 0.3s ease;
@@ -23,157 +18,217 @@
         .menu-item:hover {
             transform: translateY(-5px);
         }
-        .category-btn.active {
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        .electric-text {
+            background: linear-gradient(90deg, #00ff87, #00d4ff);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            font-weight: 700;
         }
-        .cart-item-enter {
-            opacity: 0;
-            transform: translateX(20px);
+        .cart-bounce {
+            animation: bounce 0.5s ease;
         }
-        .cart-item-enter-active {
-            opacity: 1;
-            transform: translateX(0);
-            transition: all 0.3s ease;
+        @keyframes bounce {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
         }
     </style>
 </head>
-<body class="bg-gradient-to-br from-orange-50 to-red-50 min-h-screen">
-    <!-- Header -->
-    <header class="bg-white shadow-lg sticky top-0 z-50">
+<body class="bg-gray-50">
+    <!-- Header/Navigation -->
+    <header class="bg-white shadow-md sticky top-0 z-50">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center py-4">
-                <div class="flex items-center space-x-2">
-                    <div class="text-3xl">🍕</div>
-                    <h1 class="text-2xl font-bold text-gray-800">Delicious Bites</h1>
+                <div class="flex items-center space-x-3">
+                    <div class="text-3xl">⚡</div>
+                    <h1 class="text-2xl font-bold text-gray-800">Electro<span class="electric-text">Fuel</span> 2</h1>
                 </div>
-                <div class="flex items-center space-x-4">
-                    <a href="#contact" class="hidden md:block text-gray-600 hover:text-orange-500 transition-colors">
-                        <i class="fas fa-phone-alt mr-1"></i> Contact
-                    </a>
-                    <button id="cartBtn" class="relative bg-orange-500 hover:bg-orange-600 text-white px-6 py-2 rounded-full font-medium transition-colors flex items-center">
-                        <i class="fas fa-shopping-cart mr-2"></i>
-                        <span id="cartCount">0</span>
-                    </button>
-                </div>
+                <nav class="hidden md:flex space-x-8">
+                    <a href="#menu" class="text-gray-600 hover:text-orange-500 transition-colors">Menu</a>
+                    <a href="#about" class="text-gray-600 hover:text-orange-500 transition-colors">About Us</a>
+                    <a href="#location" class="text-gray-600 hover:text-orange-500 transition-colors">Location</a>
+                    <a href="#contact" class="text-gray-600 hover:text-orange-500 transition-colors">Contact</a>
+                </nav>
+                <button id="cartBtn" class="relative bg-orange-500 hover:bg-orange-600 text-white px-4 py-2 rounded-full font-medium transition-colors flex items-center">
+                    <i class="fas fa-shopping-cart mr-2"></i>
+                    <span id="cartCount">0</span>
+                </button>
             </div>
         </div>
     </header>
 
     <!-- Hero Section -->
-    <section class="bg-gradient-to-r from-orange-500 to-red-500 text-white py-16 md:py-24">
+    <section class="bg-gradient-to-r from-green-600 to-green-800 text-white py-16 md:py-24">
         <div class="max-w-7xl mx-auto px-4 text-center">
-            <h2 class="text-4xl md:text-5xl font-bold mb-4">Fresh Food Delivered Fast</h2>
-            <p class="text-lg md:text-xl mb-8">Order your favorite meals and get them delivered in 30 minutes or less</p>
+            <h2 class="text-4xl md:text-5xl font-bold mb-4">Innovative Campus Eats</h2>
+            <p class="text-lg md:text-xl mb-8">Serving Instagram-worthy snacks and drinks to UiTM Samarahan students</p>
             <div class="flex flex-col sm:flex-row justify-center gap-4">
-                <button onclick="document.getElementById('menu').scrollIntoView({behavior: 'smooth'})" 
-                        class="bg-white text-orange-500 px-8 py-3 rounded-full font-semibold hover:bg-gray-100 transition-colors">
-                    Order Now
-                </button>
-                <a href="#specials" class="bg-transparent border-2 border-white text-white px-8 py-3 rounded-full font-semibold hover:bg-white hover:bg-opacity-10 transition-colors">
-                    Today's Specials
+                <a href="#menu" class="bg-white text-green-600 px-8 py-3 rounded-full font-semibold hover:bg-gray-100 transition-colors">
+                    View Menu
+                </a>
+                <a href="https://instagram.com/electrofuel.co" target="_blank" class="bg-transparent border-2 border-white text-white px-8 py-3 rounded-full font-semibold hover:bg-white hover:bg-opacity-10 transition-colors flex items-center justify-center">
+                    <i class="fab fa-instagram mr-2"></i> Follow Us
                 </a>
             </div>
         </div>
     </section>
 
-    <!-- Special Offers -->
-    <section id="specials" class="py-12 bg-white">
+    <!-- About Section -->
+    <section id="about" class="py-16 bg-white">
         <div class="max-w-7xl mx-auto px-4">
-            <h2 class="text-3xl font-bold text-center text-gray-800 mb-8">Today's Special Offers</h2>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                <div class="bg-gradient-to-br from-red-100 to-orange-100 rounded-xl p-6 shadow-md border border-orange-200">
-                    <div class="flex items-center mb-4">
-                        <div class="bg-orange-500 text-white p-3 rounded-full mr-4">
-                            <i class="fas fa-percentage text-xl"></i>
-                        </div>
-                        <h3 class="text-xl font-semibold">20% Off Pizzas</h3>
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-gray-800 mb-4">Our Story</h2>
+                <div class="w-24 h-1 bg-orange-500 mx-auto"></div>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+                <div>
+                    <h3 class="text-2xl font-semibold text-gray-800 mb-4">ElectroFuel 2</h3>
+                    <p class="text-gray-600 mb-6">
+                        Founded by four UiTM Sarawak students, ElectroFuel 2 brings innovative street food concepts to campus life. 
+                        Our mission is to serve affordable, Instagram-worthy food and drinks that satisfy student cravings while 
+                        providing a fast, stylish, and memorable café experience.
+                    </p>
+                    <div class="bg-green-50 border-l-4 border-green-500 p-4 mb-6">
+                        <p class="text-green-700 font-medium">"To become a leading youth-focused food and beverage brand in Malaysia, known for unique product offerings and strong campus presence."</p>
                     </div>
-                    <p class="text-gray-600 mb-4">Use code <span class="font-mono bg-orange-100 px-2 py-1 rounded">PIZZA20</span> at checkout</p>
-                    <button onclick="showCategory('pizza')" class="text-orange-500 font-medium hover:underline">Browse Pizzas</button>
+                    <div class="flex flex-wrap gap-4">
+                        <div class="bg-gray-100 px-4 py-2 rounded-full">
+                            <span class="text-gray-700">⚡ Student-run</span>
+                        </div>
+                        <div class="bg-gray-100 px-4 py-2 rounded-full">
+                            <span class="text-gray-700">📸 Instagrammable</span>
+                        </div>
+                        <div class="bg-gray-100 px-4 py-2 rounded-full">
+                            <span class="text-gray-700">💰 Affordable</span>
+                        </div>
+                    </div>
                 </div>
-                <div class="bg-gradient-to-br from-red-100 to-orange-100 rounded-xl p-6 shadow-md border border-orange-200">
-                    <div class="flex items-center mb-4">
-                        <div class="bg-orange-500 text-white p-3 rounded-full mr-4">
-                            <i class="fas fa-gift text-xl"></i>
-                        </div>
-                        <h3 class="text-xl font-semibold">Free Dessert</h3>
+                <div class="grid grid-cols-2 gap-4">
+                    <div class="bg-green-100 p-6 rounded-xl">
+                        <h4 class="font-semibold text-green-800 mb-2">Watt-A-Corn</h4>
+                        <p class="text-gray-600 text-sm">Steamed sweet corn with creamy butter and sweetened condensed milk</p>
                     </div>
-                    <p class="text-gray-600 mb-4">On orders over $30</p>
-                    <button onclick="showCategory('desserts')" class="text-orange-500 font-medium hover:underline">Browse Desserts</button>
+                    <div class="bg-green-200 p-6 rounded-xl">
+                        <h4 class="font-semibold text-green-800 mb-2">Voltcha</h4>
+                        <p class="text-gray-600 text-sm">Authentic matcha and milk dessert drink with aesthetic appeal</p>
+                    </div>
+                    <div class="bg-green-50 p-6 rounded-xl col-span-2">
+                        <h4 class="font-semibold text-green-800 mb-2">Location</h4>
+                        <p class="text-gray-600">NO.73 LOT 2390 LORONG 12B2, TAMAN DESA ILMU, JALAN DATUK MOHD MUSA 94300, KOTA SAMARAHAN</p>
+                    </div>
                 </div>
-                <div class="bg-gradient-to-br from-red-100 to-orange-100 rounded-xl p-6 shadow-md border border-orange-200">
-                    <div class="flex items-center mb-4">
-                        <div class="bg-orange-500 text-white p-3 rounded-full mr-4">
-                            <i class="fas fa-bolt text-xl"></i>
-                        </div>
-                        <h3 class="text-xl font-semibold">Fast Delivery</h3>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section class="py-16 bg-gray-100">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-gray-800 mb-4">Our Team</h2>
+                <div class="w-24 h-1 bg-orange-500 mx-auto"></div>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- General Manager -->
+                <div class="bg-white rounded-xl shadow-md overflow-hidden">
+                    <div class="h-48 bg-gradient-to-br from-green-400 to-green-600 flex items-center justify-center text-6xl text-white">
+                        <i class="fas fa-user"></i>
                     </div>
-                    <p class="text-gray-600 mb-4">30 minutes or it's free</p>
-                    <button onclick="document.getElementById('menu').scrollIntoView({behavior: 'smooth'})" class="text-orange-500 font-medium hover:underline">Order Now</button>
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-1">Axel Bedindang</h3>
+                        <p class="text-green-600 font-medium mb-4">General & Marketing Manager</p>
+                        <p class="text-gray-600 text-sm">Handles social media marketing, advertising, and works with other teams to create campaigns.</p>
+                    </div>
+                </div>
+                
+                <!-- Admin Manager -->
+                <div class="bg-white rounded-xl shadow-md overflow-hidden">
+                    <div class="h-48 bg-gradient-to-br from-blue-400 to-blue-600 flex items-center justify-center text-6xl text-white">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-1">Muhammad Fakhrul Yazid</h3>
+                        <p class="text-blue-600 font-medium mb-4">Administration Manager</p>
+                        <p class="text-gray-600 text-sm">Manages office records, schedules, communication and ensures daily admin tasks are completed.</p>
+                    </div>
+                </div>
+                
+                <!-- Financial Manager -->
+                <div class="bg-white rounded-xl shadow-md overflow-hidden">
+                    <div class="h-48 bg-gradient-to-br from-purple-400 to-purple-600 flex items-center justify-center text-6xl text-white">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-1">Mohamad Aliff</h3>
+                        <p class="text-purple-600 font-medium mb-4">Financial Manager</p>
+                        <p class="text-gray-600 text-sm">Handles budgeting, financial reports, and monitors cash flow and company spending.</p>
+                    </div>
+                </div>
+                
+                <!-- Operations Manager -->
+                <div class="bg-white rounded-xl shadow-md overflow-hidden">
+                    <div class="h-48 bg-gradient-to-br from-orange-400 to-orange-600 flex items-center justify-center text-6xl text-white">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-1">Mervin Metda</h3>
+                        <p class="text-orange-600 font-medium mb-4">Operations Manager</p>
+                        <p class="text-gray-600 text-sm">Oversees daily shop operations, maintains product quality, and supervises logistics.</p>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Menu Section -->
-    <section id="menu" class="py-16">
+    <section id="menu" class="py-16 bg-white">
         <div class="max-w-7xl mx-auto px-4">
-            <h2 class="text-4xl font-bold text-center text-gray-800 mb-12">Our Menu</h2>
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-gray-800 mb-4">Our Menu</h2>
+                <div class="w-24 h-1 bg-orange-500 mx-auto"></div>
+            </div>
             
-            <!-- Search and Category Tabs -->
-            <div class="flex flex-col md:flex-row justify-between items-center mb-8 gap-4">
-                <div class="w-full md:w-auto">
-                    <div class="relative">
-                        <input type="text" id="searchInput" placeholder="Search menu items..." 
-                               class="w-full md:w-64 px-4 py-2 rounded-full border border-gray-300 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent">
-                        <i class="fas fa-search absolute right-3 top-3 text-gray-400"></i>
-                    </div>
-                </div>
-                <div class="bg-white rounded-full p-2 shadow-lg">
-                    <button onclick="showCategory('all')" class="category-btn active px-6 py-2 rounded-full font-medium transition-colors" data-category="all">
-                        <i class="fas fa-utensils mr-2"></i>All
+            <div class="flex justify-center mb-8">
+                <div class="bg-white rounded-full p-1 shadow-lg border border-gray-200">
+                    <button onclick="showCategory('all')" class="category-btn active px-6 py-2 rounded-full font-medium transition-colors bg-green-500 text-white" data-category="all">
+                        All Items
                     </button>
-                    <button onclick="showCategory('pizza')" class="category-btn px-6 py-2 rounded-full font-medium transition-colors" data-category="pizza">
-                        <i class="fas fa-pizza-slice mr-2"></i>Pizza
+                    <button onclick="showCategory('wattacorn')" class="category-btn px-6 py-2 rounded-full font-medium transition-colors text-gray-600 hover:bg-gray-100" data-category="wattacorn">
+                        Watt-A-Corn
                     </button>
-                    <button onclick="showCategory('burgers')" class="category-btn px-6 py-2 rounded-full font-medium transition-colors" data-category="burgers">
-                        <i class="fas fa-hamburger mr-2"></i>Burgers
+                    <button onclick="showCategory('voltcha')" class="category-btn px-6 py-2 rounded-full font-medium transition-colors text-gray-600 hover:bg-gray-100" data-category="voltcha">
+                        Voltcha
                     </button>
-                    <button onclick="showCategory('pasta')" class="category-btn px-6 py-2 rounded-full font-medium transition-colors" data-category="pasta">
-                        <i class="fas fa-pasta mr-2"></i>Pasta
-                    </button>
-                    <button onclick="showCategory('desserts')" class="category-btn px-6 py-2 rounded-full font-medium transition-colors" data-category="desserts">
-                        <i class="fas fa-ice-cream mr-2"></i>Desserts
+                    <button onclick="showCategory('combos')" class="category-btn px-6 py-2 rounded-full font-medium transition-colors text-gray-600 hover:bg-gray-100" data-category="combos">
+                        Combos
                     </button>
                 </div>
             </div>
 
-            <!-- Menu Items -->
             <div id="menuItems" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- Pizza Items -->
-                <div class="menu-item pizza all">
+                <!-- Watt-A-Corn -->
+                <div class="menu-item wattacorn all">
                     <div class="bg-white rounded-xl shadow-lg overflow-hidden h-full flex flex-col">
-                        <div class="h-48 bg-gradient-to-br from-red-400 to-orange-400 flex items-center justify-center text-6xl relative">
-                            <span>🍕</span>
-                            <div class="absolute top-4 right-4 bg-orange-500 text-white px-3 py-1 rounded-full text-sm font-semibold">
-                                20% Off
+                        <div class="h-48 bg-gradient-to-br from-yellow-400 to-yellow-600 flex items-center justify-center text-6xl relative">
+                            <span>🌽</span>
+                            <div class="absolute top-4 right-4 bg-green-500 text-white px-3 py-1 rounded-full text-sm font-semibold">
+                                Best Seller
                             </div>
                         </div>
                         <div class="p-6 flex-grow">
                             <div class="flex justify-between items-start mb-2">
-                                <h3 class="text-xl font-semibold">Margherita Pizza</h3>
+                                <h3 class="text-xl font-semibold">Watt-A-Corn</h3>
                                 <span class="flex items-center text-yellow-500">
                                     <i class="fas fa-star"></i>
                                     <span class="ml-1">4.8</span>
                                 </span>
                             </div>
-                            <p class="text-gray-600 mb-4">Fresh tomatoes, mozzarella, and basil on our signature crust</p>
+                            <p class="text-gray-600 mb-4">Steamed sweet corn served with creamy butter and sweetened condensed milk as a topping. Packaged in a convenient cup for easy snacking.</p>
                             <div class="flex justify-between items-center mt-auto">
-                                <div>
-                                    <span class="text-2xl font-bold text-orange-500">$12.99</span>
-                                    <span class="ml-2 text-gray-400 line-through">$15.99</span>
-                                </div>
-                                <button onclick="addToCart('Margherita Pizza', 12.99)" class="bg-orange-500 hover:bg-orange-600 text-white px-4 py-2 rounded-lg font-medium transition-colors flex items-center">
+                                <span class="text-2xl font-bold text-green-600">RM4.00</span>
+                                <button onclick="addToCart('Watt-A-Corn', 4.00)" class="bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded-lg font-medium transition-colors flex items-center">
                                     <i class="fas fa-plus mr-2"></i> Add
                                 </button>
                             </div>
@@ -181,25 +236,27 @@
                     </div>
                 </div>
 
-                <!-- More menu items would continue here... -->
-                <!-- Example of another item -->
-                <div class="menu-item burgers all">
+                <!-- Voltcha -->
+                <div class="menu-item voltcha all">
                     <div class="bg-white rounded-xl shadow-lg overflow-hidden h-full flex flex-col">
-                        <div class="h-48 bg-gradient-to-br from-amber-400 to-amber-600 flex items-center justify-center text-6xl">
-                            <span>🍔</span>
+                        <div class="h-48 bg-gradient-to-br from-green-400 to-green-600 flex items-center justify-center text-6xl relative">
+                            <span>🍵</span>
+                            <div class="absolute top-4 right-4 bg-yellow-500 text-white px-3 py-1 rounded-full text-sm font-semibold">
+                                Trendy
+                            </div>
                         </div>
                         <div class="p-6 flex-grow">
                             <div class="flex justify-between items-start mb-2">
-                                <h3 class="text-xl font-semibold">Classic Cheeseburger</h3>
+                                <h3 class="text-xl font-semibold">Voltcha</h3>
                                 <span class="flex items-center text-yellow-500">
                                     <i class="fas fa-star"></i>
-                                    <span class="ml-1">4.6</span>
+                                    <span class="ml-1">4.7</span>
                                 </span>
                             </div>
-                            <p class="text-gray-600 mb-4">Beef patty with cheddar cheese, lettuce, tomato, and special sauce</p>
+                            <p class="text-gray-600 mb-4">A soothing and satisfying dessert drink made with authentic matcha and milk. It's the perfect beverage for people looking for trendy and aesthetically pleasing drinks.</p>
                             <div class="flex justify-between items-center mt-auto">
-                                <span class="text-2xl font-bold text-orange-500">$9.99</span>
-                                <button onclick="addToCart('Classic Cheeseburger', 9.99)" class="bg-orange-500 hover:bg-orange-600 text-white px-4 py-2 rounded-lg font-medium transition-colors flex items-center">
+                                <span class="text-2xl font-bold text-green-600">RM6.00</span>
+                                <button onclick="addToCart('Voltcha', 6.00)" class="bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded-lg font-medium transition-colors flex items-center">
                                     <i class="fas fa-plus mr-2"></i> Add
                                 </button>
                             </div>
@@ -207,28 +264,31 @@
                     </div>
                 </div>
 
-                <!-- Example of a special item -->
-                <div class="menu-item desserts all special">
-                    <div class="bg-white rounded-xl shadow-lg overflow-hidden h-full flex flex-col border-2 border-orange-300">
-                        <div class="h-48 bg-gradient-to-br from-pink-300 to-purple-300 flex items-center justify-center text-6xl relative">
-                            <span>🍰</span>
+                <!-- Combo -->
+                <div class="menu-item combos all special">
+                    <div class="bg-white rounded-xl shadow-lg overflow-hidden h-full flex flex-col border-2 border-green-300">
+                        <div class="h-48 bg-gradient-to-br from-green-200 to-yellow-200 flex items-center justify-center text-6xl relative">
+                            <span>⚡</span>
                             <div class="absolute top-4 left-4 bg-red-500 text-white px-3 py-1 rounded-full text-sm font-semibold">
-                                Popular
+                                Save RM1.50
                             </div>
                         </div>
                         <div class="p-6 flex-grow">
                             <div class="flex justify-between items-start mb-2">
-                                <h3 class="text-xl font-semibold">Chocolate Lava Cake</h3>
+                                <h3 class="text-xl font-semibold">Static Combo</h3>
                                 <span class="flex items-center text-yellow-500">
                                     <i class="fas fa-star"></i>
                                     <span class="ml-1">4.9</span>
                                 </span>
                             </div>
-                            <p class="text-gray-600 mb-4">Warm chocolate cake with a molten center, served with vanilla ice cream</p>
+                            <p class="text-gray-600 mb-4">Get both our signature items together - Watt-A-Corn + Voltcha. Perfect for when you can't decide or want the complete ElectroFuel experience.</p>
                             <div class="flex justify-between items-center mt-auto">
-                                <span class="text-2xl font-bold text-orange-500">$6.99</span>
-                                <button onclick="addToCart('Chocolate Lava Cake', 6.99)" class="bg-orange-500 hover:bg-orange-600 text-white px-4 py-2 rounded-lg font-medium transition-colors flex items-center">
-                                    <i class="fas fa-plus mr-2"></i> Add
+                                <div>
+                                    <span class="text-2xl font-bold text-green-600">RM9.50</span>
+                                    <span class="ml-2 text-gray-400 line-through">RM11.00</span>
+                                </div>
+                                <button onclick="addComboToCart()" class="bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded-lg font-medium transition-colors flex items-center">
+                                    <i class="fas fa-plus mr-2"></i> Add Combo
                                 </button>
                             </div>
                         </div>
@@ -238,134 +298,184 @@
         </div>
     </section>
 
-    <!-- Testimonials -->
-    <section class="py-16 bg-gray-50">
+    <!-- Location & Hours -->
+    <section id="location" class="py-16 bg-gray-100">
         <div class="max-w-7xl mx-auto px-4">
-            <h2 class="text-3xl font-bold text-center text-gray-800 mb-12">What Our Customers Say</h2>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <div class="bg-white p-6 rounded-xl shadow-md">
-                    <div class="flex items-center mb-4">
-                        <div class="w-12 h-12 rounded-full bg-orange-100 flex items-center justify-center text-orange-500 mr-4">
-                            <i class="fas fa-user text-xl"></i>
-                        </div>
-                        <div>
-                            <h4 class="font-semibold">Sarah Johnson</h4>
-                            <div class="flex text-yellow-400">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                            </div>
-                        </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                <div>
+                    <h2 class="text-3xl font-bold text-gray-800 mb-6">Find Us</h2>
+                    <div class="bg-white p-6 rounded-xl shadow-md mb-6">
+                        <h3 class="text-xl font-semibold mb-4 flex items-center">
+                            <i class="fas fa-map-marker-alt text-green-500 mr-3"></i>
+                            Our Location
+                        </h3>
+                        <p class="text-gray-600">
+                            NO.73 LOT 2390 LORONG 12B2,<br>
+                            TAMAN DESA ILMU,<br>
+                            JALAN DATUK MOHD MUSA 94300,<br>
+                            KOTA SAMARAHAN
+                        </p>
                     </div>
-                    <p class="text-gray-600">"The Margherita pizza is absolutely delicious! Always fresh and delivered hot. My go-to Friday night dinner!"</p>
+                    <div class="bg-white p-6 rounded-xl shadow-md">
+                        <h3 class="text-xl font-semibold mb-4 flex items-center">
+                            <i class="fas fa-phone-alt text-green-500 mr-3"></i>
+                            Contact Us
+                        </h3>
+                        <p class="text-gray-600 mb-2">
+                            <i class="fas fa-phone mr-2 text-green-500"></i> 019-8774330
+                        </p>
+                        <p class="text-gray-600">
+                            <i class="fas fa-envelope mr-2 text-green-500"></i> electrofuel2.sdn.bhd@gmail.com
+                        </p>
+                    </div>
                 </div>
-                <div class="bg-white p-6 rounded-xl shadow-md">
-                    <div class="flex items-center mb-4">
-                        <div class="w-12 h-12 rounded-full bg-orange-100 flex items-center justify-center text-orange-500 mr-4">
-                            <i class="fas fa-user text-xl"></i>
-                        </div>
-                        <div>
-                            <h4 class="font-semibold">Michael Chen</h4>
-                            <div class="flex text-yellow-400">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
+                <div>
+                    <h2 class="text-3xl font-bold text-gray-800 mb-6">Operation Hours</h2>
+                    <div class="bg-white p-6 rounded-xl shadow-md">
+                        <h3 class="text-xl font-semibold mb-4 flex items-center">
+                            <i class="fas fa-clock text-green-500 mr-3"></i>
+                            Event Days
+                        </h3>
+                        <div class="space-y-4">
+                            <div class="flex justify-between border-b pb-2">
+                                <span class="text-gray-600">Preparation</span>
+                                <span class="font-medium">12:00 PM - 3:00 PM</span>
+                            </div>
+                            <div class="flex justify-between border-b pb-2">
+                                <span class="text-gray-600">Booth Operation</span>
+                                <span class="font-medium">4:00 PM - 9:00 PM</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span class="text-gray-600">Closing</span>
+                                <span class="font-medium">9:00 PM - 10:00 PM</span>
                             </div>
                         </div>
+                        <p class="mt-6 text-gray-600 text-sm">
+                            *We primarily operate during campus events like PESKO, Pesta Konvokesyen, and Seborneo.
+                        </p>
                     </div>
-                    <p class="text-gray-600">"Fast delivery and the burgers are amazing. The free dessert offer is a nice bonus too!"</p>
                 </div>
-                <div class="bg-white p-6 rounded-xl shadow-md">
-                    <div class="flex items-center mb-4">
-                        <div class="w-12 h-12 rounded-full bg-orange-100 flex items-center justify-center text-orange-500 mr-4">
-                            <i class="fas fa-user text-xl"></i>
-                        </div>
-                        <div>
-                            <h4 class="font-semibold">Emma Rodriguez</h4>
-                            <div class="flex text-yellow-400">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star-half-alt"></i>
-                            </div>
-                        </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Marketing Section -->
+    <section class="py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-gray-800 mb-4">Follow Our Journey</h2>
+                <div class="w-24 h-1 bg-orange-500 mx-auto"></div>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+                <div>
+                    <h3 class="text-2xl font-semibold text-gray-800 mb-4">#ElectroFuel2</h3>
+                    <p class="text-gray-600 mb-6">
+                        Join our growing community of satisfied customers! Follow us on Instagram for:
+                    </p>
+                    <ul class="space-y-3 text-gray-600">
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
+                            <span>Latest product updates and promotions</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
+                            <span>Behind-the-scenes of our campus operations</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
+                            <span>Customer photos and reviews</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
+                            <span>Special event announcements</span>
+                        </li>
+                    </ul>
+                    <a href="https://instagram.com/electrofuel.co" target="_blank" class="mt-6 inline-flex items-center bg-gradient-to-r from-purple-500 to-pink-500 text-white px-6 py-3 rounded-full font-semibold hover:opacity-90 transition-opacity">
+                        <i class="fab fa-instagram mr-2 text-xl"></i> Follow @electrofuel.co
+                    </a>
+                </div>
+                <div class="bg-gray-100 p-4 rounded-xl border border-gray-200">
+                    <!-- Placeholder for Instagram feed -->
+                    <div class="bg-white p-8 text-center rounded-lg">
+                        <i class="fab fa-instagram text-5xl text-pink-500 mb-4"></i>
+                        <h4 class="text-xl font-semibold mb-2">Our Instagram Feed</h4>
+                        <p class="text-gray-600">Follow us to see our latest posts!</p>
                     </div>
-                    <p class="text-gray-600">"The chocolate lava cake is to die for! Perfect ending to any meal. Highly recommend!"</p>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Contact Section -->
-    <section id="contact" class="py-16 bg-white">
+    <section id="contact" class="py-16 bg-gray-100">
         <div class="max-w-7xl mx-auto px-4">
-            <h2 class="text-3xl font-bold text-center text-gray-800 mb-12">Contact Us</h2>
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-gray-800 mb-4">Get In Touch</h2>
+                <div class="w-24 h-1 bg-orange-500 mx-auto"></div>
+            </div>
+            
             <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
-                <div>
-                    <h3 class="text-xl font-semibold mb-4">Get in Touch</h3>
-                    <div class="space-y-4">
-                        <div class="flex items-start">
-                            <div class="bg-orange-100 p-3 rounded-full mr-4">
-                                <i class="fas fa-map-marker-alt text-orange-500"></i>
-                            </div>
-                            <div>
-                                <h4 class="font-medium">Address</h4>
-                                <p class="text-gray-600">123 Food Street, Culinary City</p>
-                            </div>
-                        </div>
-                        <div class="flex items-start">
-                            <div class="bg-orange-100 p-3 rounded-full mr-4">
-                                <i class="fas fa-phone-alt text-orange-500"></i>
-                            </div>
-                            <div>
-                                <h4 class="font-medium">Phone</h4>
-                                <p class="text-gray-600">(123) 456-7890</p>
-                            </div>
-                        </div>
-                        <div class="flex items-start">
-                            <div class="bg-orange-100 p-3 rounded-full mr-4">
-                                <i class="fas fa-envelope text-orange-500"></i>
-                            </div>
-                            <div>
-                                <h4 class="font-medium">Email</h4>
-                                <p class="text-gray-600">info@deliciousbites.com</p>
-                            </div>
-                        </div>
-                        <div class="flex items-start">
-                            <div class="bg-orange-100 p-3 rounded-full mr-4">
-                                <i class="fas fa-clock text-orange-500"></i>
-                            </div>
-                            <div>
-                                <h4 class="font-medium">Opening Hours</h4>
-                                <p class="text-gray-600">Mon-Sun: 10:00 AM - 10:00 PM</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
                 <div>
                     <h3 class="text-xl font-semibold mb-4">Send Us a Message</h3>
                     <form class="space-y-4">
                         <div>
                             <label for="name" class="block text-gray-700 mb-1">Name</label>
-                            <input type="text" id="name" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent">
+                            <input type="text" id="name" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent">
                         </div>
                         <div>
                             <label for="email" class="block text-gray-700 mb-1">Email</label>
-                            <input type="email" id="email" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent">
+                            <input type="email" id="email" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent">
                         </div>
                         <div>
                             <label for="message" class="block text-gray-700 mb-1">Message</label>
-                            <textarea id="message" rows="4" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent"></textarea>
+                            <textarea id="message" rows="4" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent"></textarea>
                         </div>
-                        <button type="submit" class="bg-orange-500 hover:bg-orange-600 text-white px-6 py-3 rounded-lg font-semibold transition-colors w-full">
+                        <button type="submit" class="bg-green-500 hover:bg-green-600 text-white px-6 py-3 rounded-lg font-semibold transition-colors w-full">
                             Send Message
                         </button>
                     </form>
+                </div>
+                <div>
+                    <h3 class="text-xl font-semibold mb-4">Contact Information</h3>
+                    <div class="space-y-4">
+                        <div class="flex items-start">
+                            <div class="bg-green-100 p-3 rounded-full mr-4">
+                                <i class="fas fa-map-marker-alt text-green-500"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-medium">Address</h4>
+                                <p class="text-gray-600">NO.73 LOT 2390 LORONG 12B2, TAMAN DESA ILMU, JALAN DATUK MOHD MUSA 94300, KOTA SAMARAHAN</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="bg-green-100 p-3 rounded-full mr-4">
+                                <i class="fas fa-phone-alt text-green-500"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-medium">Phone</h4>
+                                <p class="text-gray-600">019-8774330</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="bg-green-100 p-3 rounded-full mr-4">
+                                <i class="fas fa-envelope text-green-500"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-medium">Email</h4>
+                                <p class="text-gray-600">electrofuel2.sdn.bhd@gmail.com</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="bg-green-100 p-3 rounded-full mr-4">
+                                <i class="fab fa-instagram text-green-500"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-medium">Instagram</h4>
+                                <p class="text-gray-600">@electrofuel.co</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -377,59 +487,49 @@
             <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
                 <div>
                     <h3 class="text-xl font-bold mb-4 flex items-center">
-                        <span class="mr-2">🍕</span> Delicious Bites
+                        <span class="mr-2">⚡</span> ElectroFuel 2
                     </h3>
-                    <p class="text-gray-400">Fresh food delivered fast to your doorstep. Order online and enjoy delicious meals in no time!</p>
+                    <p class="text-gray-400">Innovative campus eats serving Watt-A-Corn and Voltcha to UiTM Samarahan students.</p>
                 </div>
                 <div>
                     <h4 class="font-semibold text-lg mb-4">Quick Links</h4>
                     <ul class="space-y-2">
-                        <li><a href="#menu" class="text-gray-400 hover:text-orange-400 transition-colors">Menu</a></li>
-                        <li><a href="#specials" class="text-gray-400 hover:text-orange-400 transition-colors">Special Offers</a></li>
-                        <li><a href="#contact" class="text-gray-400 hover:text-orange-400 transition-colors">Contact Us</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-orange-400 transition-colors">About Us</a></li>
+                        <li><a href="#menu" class="text-gray-400 hover:text-green-400 transition-colors">Menu</a></li>
+                        <li><a href="#about" class="text-gray-400 hover:text-green-400 transition-colors">About Us</a></li>
+                        <li><a href="#location" class="text-gray-400 hover:text-green-400 transition-colors">Location</a></li>
+                        <li><a href="#contact" class="text-gray-400 hover:text-green-400 transition-colors">Contact</a></li>
                     </ul>
                 </div>
                 <div>
-                    <h4 class="font-semibold text-lg mb-4">Categories</h4>
+                    <h4 class="font-semibold text-lg mb-4">Our Products</h4>
                     <ul class="space-y-2">
-                        <li><a href="#" onclick="showCategory('pizza')" class="text-gray-400 hover:text-orange-400 transition-colors">Pizza</a></li>
-                        <li><a href="#" onclick="showCategory('burgers')" class="text-gray-400 hover:text-orange-400 transition-colors">Burgers</a></li>
-                        <li><a href="#" onclick="showCategory('pasta')" class="text-gray-400 hover:text-orange-400 transition-colors">Pasta</a></li>
-                        <li><a href="#" onclick="showCategory('desserts')" class="text-gray-400 hover:text-orange-400 transition-colors">Desserts</a></li>
+                        <li><a href="#" onclick="showCategory('wattacorn')" class="text-gray-400 hover:text-green-400 transition-colors">Watt-A-Corn</a></li>
+                        <li><a href="#" onclick="showCategory('voltcha')" class="text-gray-400 hover:text-green-400 transition-colors">Voltcha</a></li>
+                        <li><a href="#" onclick="showCategory('combos')" class="text-gray-400 hover:text-green-400 transition-colors">Combos</a></li>
                     </ul>
                 </div>
                 <div>
-                    <h4 class="font-semibold text-lg mb-4">Follow Us</h4>
+                    <h4 class="font-semibold text-lg mb-4">Connect With Us</h4>
                     <div class="flex space-x-4">
-                        <a href="#" class="bg-gray-700 hover:bg-orange-500 w-10 h-10 rounded-full flex items-center justify-center transition-colors">
-                            <i class="fab fa-facebook-f"></i>
-                        </a>
-                        <a href="#" class="bg-gray-700 hover:bg-orange-500 w-10 h-10 rounded-full flex items-center justify-center transition-colors">
-                            <i class="fab fa-twitter"></i>
-                        </a>
-                        <a href="#" class="bg-gray-700 hover:bg-orange-500 w-10 h-10 rounded-full flex items-center justify-center transition-colors">
+                        <a href="https://instagram.com/electrofuel.co" target="_blank" class="bg-gray-700 hover:bg-green-500 w-10 h-10 rounded-full flex items-center justify-center transition-colors">
                             <i class="fab fa-instagram"></i>
                         </a>
-                        <a href="#" class="bg-gray-700 hover:bg-orange-500 w-10 h-10 rounded-full flex items-center justify-center transition-colors">
-                            <i class="fab fa-youtube"></i>
+                        <a href="#" class="bg-gray-700 hover:bg-green-500 w-10 h-10 rounded-full flex items-center justify-center transition-colors">
+                            <i class="fab fa-whatsapp"></i>
+                        </a>
+                        <a href="#" class="bg-gray-700 hover:bg-green-500 w-10 h-10 rounded-full flex items-center justify-center transition-colors">
+                            <i class="fas fa-envelope"></i>
                         </a>
                     </div>
                     <div class="mt-6">
-                        <h5 class="font-medium mb-2">Download Our App</h5>
-                        <div class="flex space-x-2">
-                            <a href="#" class="bg-black hover:bg-gray-900 text-white px-3 py-2 rounded-lg flex items-center text-sm transition-colors">
-                                <i class="fab fa-apple mr-2"></i> App Store
-                            </a>
-                            <a href="#" class="bg-black hover:bg-gray-900 text-white px-3 py-2 rounded-lg flex items-center text-sm transition-colors">
-                                <i class="fab fa-google-play mr-2"></i> Play Store
-                            </a>
-                        </div>
+                        <h5 class="font-medium mb-2">Business Info</h5>
+                        <p class="text-gray-400 text-sm">Registration: 202501001234</p>
+                        <p class="text-gray-400 text-sm">Bank: GX Bank (8888-1234567-9)</p>
                     </div>
                 </div>
             </div>
             <div class="border-t border-gray-700 mt-8 pt-8 text-center text-gray-400">
-                <p>&copy; 2023 Delicious Bites. All rights reserved.</p>
+                <p>&copy; 2025 ElectroFuel 2. All rights reserved.</p>
             </div>
         </div>
     </footer>
@@ -441,7 +541,7 @@
                 <div class="p-6 border-b sticky top-0 bg-white z-10">
                     <div class="flex justify-between items-center">
                         <h3 class="text-xl font-semibold flex items-center">
-                            <i class="fas fa-shopping-cart mr-2"></i> Your Cart
+                            <i class="fas fa-shopping-cart mr-2"></i> Your Order
                         </h3>
                         <button onclick="closeCart()" class="text-gray-500 hover:text-gray-700 text-2xl transition-colors">
                             &times;
@@ -454,20 +554,16 @@
                 <div class="p-6 border-t bg-gray-50 sticky bottom-0">
                     <div class="flex justify-between items-center mb-4">
                         <span class="text-lg font-semibold">Subtotal:</span>
-                        <span class="text-lg font-bold">$<span id="cartSubtotal">0.00</span></span>
-                    </div>
-                    <div class="flex justify-between items-center mb-4 text-sm text-gray-600">
-                        <span>Delivery Fee:</span>
-                        <span>$<span id="deliveryFee">2.99</span></span>
+                        <span class="text-lg font-bold">RM<span id="cartSubtotal">0.00</span></span>
                     </div>
                     <div class="border-t border-gray-200 pt-4 mb-6">
                         <div class="flex justify-between items-center">
                             <span class="text-xl font-semibold">Total:</span>
-                            <span class="text-xl font-bold text-orange-500">$<span id="cartTotal">2.99</span></span>
+                            <span class="text-xl font-bold text-green-600">RM<span id="cartTotal">0.00</span></span>
                         </div>
                     </div>
                     <button id="checkoutBtn" onclick="checkout()" 
-                            class="w-full bg-orange-500 hover:bg-orange-600 text-white py-3 rounded-lg font-semibold transition-colors disabled:bg-gray-300 disabled:cursor-not-allowed flex items-center justify-center" 
+                            class="w-full bg-green-500 hover:bg-green-600 text-white py-3 rounded-lg font-semibold transition-colors disabled:bg-gray-300 disabled:cursor-not-allowed flex items-center justify-center" 
                             disabled>
                         <i class="fas fa-credit-card mr-2"></i> Proceed to Checkout
                     </button>
@@ -496,7 +592,6 @@
         const checkoutBtn = document.getElementById('checkoutBtn');
         const toast = document.getElementById('toast');
         const toastMessage = document.getElementById('toastMessage');
-        const searchInput = document.getElementById('searchInput');
         
         // Show category function
         function showCategory(category) {
@@ -513,20 +608,13 @@
             
             categoryButtons.forEach(btn => {
                 if (btn.dataset.category === category) {
-                    btn.classList.add('active', 'bg-orange-500', 'text-white');
+                    btn.classList.add('active', 'bg-green-500', 'text-white');
                     btn.classList.remove('text-gray-600', 'hover:bg-gray-100');
                 } else {
-                    btn.classList.remove('active', 'bg-orange-500', 'text-white');
+                    btn.classList.remove('active', 'bg-green-500', 'text-white');
                     btn.classList.add('text-gray-600', 'hover:bg-gray-100');
                 }
             });
-            
-            // Scroll to menu section if not already visible
-            const menuSection = document.getElementById('menu');
-            const menuRect = menuSection.getBoundingClientRect();
-            if (menuRect.top < 0 || menuRect.bottom > window.innerHeight) {
-                menuSection.scrollIntoView({ behavior: 'smooth' });
-            }
         }
         
         // Add to cart function
@@ -546,6 +634,13 @@
             
             updateCartDisplay();
             showToast(`${name} added to cart!`);
+        }
+        
+        // Add combo to cart
+        function addComboToCart() {
+            addToCart('Watt-A-Corn', 4.00);
+            addToCart('Voltcha', 6.00);
+            showToast('Static Combo added to cart!');
         }
         
         // Remove item from cart
@@ -573,6 +668,8 @@
             // Update cart count
             const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
             cartCount.textContent = totalItems;
+            cartCount.classList.add('cart-bounce');
+            setTimeout(() => cartCount.classList.remove('cart-bounce'), 500);
             
             // Update cart items list
             if (cart.length === 0) {
@@ -580,13 +677,13 @@
                 checkoutBtn.disabled = true;
             } else {
                 cartItemsContainer.innerHTML = cart.map(item => `
-                    <div class="cart-item-enter mb-4 pb-4 border-b border-gray-200 last:border-0">
+                    <div class="mb-4 pb-4 border-b border-gray-200 last:border-0">
                         <div class="flex justify-between items-start">
                             <div class="flex-grow">
                                 <h4 class="font-medium">${item.name}</h4>
-                                <p class="text-gray-600 text-sm">$${item.price.toFixed(2)} each</p>
+                                <p class="text-gray-600 text-sm">RM${item.price.toFixed(2)} each</p>
                             </div>
-                            <span class="font-semibold">$${(item.price * item.quantity).toFixed(2)}</span>
+                            <span class="font-semibold">RM${(item.price * item.quantity).toFixed(2)}</span>
                         </div>
                         <div class="flex items-center justify-between mt-2">
                             <div class="flex items-center border border-gray-300 rounded-lg overflow-hidden">
@@ -610,12 +707,9 @@
             
             // Update totals
             const subtotal = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
-            const deliveryFee = subtotal > 0 ? 2.99 : 0;
-            const total = subtotal + deliveryFee;
             
             cartSubtotal.textContent = subtotal.toFixed(2);
-            cartTotal.textContent = total.toFixed(2);
-            document.getElementById('deliveryFee').textContent = deliveryFee.toFixed(2);
+            cartTotal.textContent = subtotal.toFixed(2);
         }
         
         // Show cart modal
@@ -643,7 +737,7 @@
             if (cart.length === 0) return;
             
             // In a real app, this would process payment
-            alert(`Order placed! Total: $${document.getElementById('cartTotal').textContent}\n\nThank you for your order!`);
+            alert(`Order placed! Total: RM${document.getElementById('cartTotal').textContent}\n\nThank you for your order!`);
             
             // Clear cart
             cart = [];
@@ -667,38 +761,12 @@
             }, 3000);
         }
         
-        // Search functionality
-        searchInput.addEventListener('input', function() {
-            const searchTerm = this.value.toLowerCase();
-            const menuItems = document.querySelectorAll('.menu-item');
-            
-            menuItems.forEach(item => {
-                const itemName = item.querySelector('h3').textContent.toLowerCase();
-                if (itemName.includes(searchTerm)) {
-                    item.style.display = 'block';
-                } else {
-                    item.style.display = 'none';
-                }
-            });
-        });
-        
         // Event listeners
         document.getElementById('cartBtn').addEventListener('click', openCart);
         
         // Initialize
         document.addEventListener('DOMContentLoaded', function() {
             showCategory('all');
-            
-            // Sample animation for special items
-            const specialItems = document.querySelectorAll('.special');
-            specialItems.forEach((item, index) => {
-                setTimeout(() => {
-                    item.classList.add('animate-pulse');
-                    setTimeout(() => {
-                        item.classList.remove('animate-pulse');
-                    }, 2000);
-                }, index * 300);
-            });
         });
     </script>
 </body>
